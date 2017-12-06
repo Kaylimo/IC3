@@ -7,9 +7,14 @@ pipeline {
 				bat 'mvn test'
 			}
 		}
-		stage('display') {
+		stage('build') {
 			steps {
 				bat 'mvn build'
+			}
+		}
+		stage ('deploy') {
+			steps {
+				bat 'mvn tomcat7:deploy'
 			}
 		}
 	}
