@@ -2,22 +2,21 @@ pipeline {
 	agent any
 
 	stages {
-		stage('build') {
+		stage('read repository') {
 			steps {
-				bat 'mvn clean package'
+				bat 'git fetch'
 			}
 		}
-stage('test') {
+		stage('test') {
 			steps {
 				
 				bat 'mvn test'
 			}
 		}
-stage('display') {
+		stage('display') {
 			steps {
-				bat 'dir /S target'
+				bat 'mvn build'
 			}
 		}
-
 	}
 }
