@@ -12,7 +12,7 @@ pipeline {
 				bat 'mvn build'
 			}
 		}
-		stage ('deploy') {
+		stage('deploy') {
 			steps {
 				bat 'mvn tomcat7:deploy'
 			}
